@@ -6,10 +6,10 @@ public class MessagesDErreurs {
 
 	@SuppressWarnings("serial")
 	private static HashMap<String, String> message = new HashMap<>() {{
-		put("3", "Problem pour accerder a ce compte client");
-		put("21", "Problem d'acces a la base de donnees");
-		put("22", "Proble apres traitement");
-		put("24", "Operation refusee");
+		put("3",  "Problème pour accérder a ce compte client, vérifiez au'il est bien valide");
+		put("21", "Problème d'accès à la base de données, veuillez le signaler à votre administrateur");
+		put("22", "Proble après traitement. Le traitement a été effectué correctement mais il y a eu un problème à signaler à votre administrateur");
+		put("24", "Operation refusée, débit demandé supérieur au crédit du compte");
 	}};
 	
 	public static String getMessageDerreur(String number) {		

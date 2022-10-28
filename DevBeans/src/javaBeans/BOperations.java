@@ -115,8 +115,7 @@ public class BOperations {
 			this.dbConnection = DriverManager.getConnection(this.dbURL, this.user, this.password);
 			
 		}catch (SQLException e) {
-			// TODO Auto-generated catch block
-//			System.out.println(e);
+			//			System.out.println(e);
 			throw new TraitementException("3");
 			
 		}catch (ClassNotFoundException e) {
@@ -154,7 +153,7 @@ public class BOperations {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e);
-			throw new TraitementException("22");	
+			throw new TraitementException("24");	
 		}
 	}
 	
@@ -208,7 +207,7 @@ public class BOperations {
 			// TODO Auto-generated catch block
 			System.out.println(e);
 			dbConnection.rollback();
-			throw new TraitementException("22");	
+			throw new TraitementException("24");	
 		}
 	}
 	
@@ -237,7 +236,7 @@ public class BOperations {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e);
-			throw new TraitementException("22");	
+			throw new TraitementException("24");	
 		}
 		return operationParDates;		
 	}
