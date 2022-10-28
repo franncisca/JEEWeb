@@ -17,7 +17,7 @@ public class TestListeParDates {
 			bo.ouvrirConnexion();
 		} catch (TraitementException e) {
 			// TODO Auto-generated catch block
-			System.out.println(MessagesDErreurs.getMessageDerreur(e.getNumber()));
+//			System.out.println(MessagesDErreurs.getMessageDerreur(e.getNumber()));
 		}
 		bo.setNoCompte("0001");
 		bo.setDateInf("2022-10-24");
@@ -26,7 +26,7 @@ public class TestListeParDates {
 			bo.listerParDate();
 		} catch (TraitementException e) {
 			// TODO Auto-generated catch block
-			System.out.println(MessagesDErreurs.getMessageDerreur(e.getNumber()));
+//			System.out.println(MessagesDErreurs.getMessageDerreur(e.getNumber()));
 		}
 		
 		var operations = bo.getOperationsParDate();
@@ -41,7 +41,7 @@ public class TestListeParDates {
 			bo.fermerConnexion();
 		} catch (TraitementException e) {
 			// TODO Auto-generated catch block
-			System.out.println(MessagesDErreurs.getMessageDerreur(e.getNumber()));
+//			System.out.println(MessagesDErreurs.getMessageDerreur(e.getNumber()));
 		}
 	}
 }

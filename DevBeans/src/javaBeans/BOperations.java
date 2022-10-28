@@ -158,17 +158,16 @@ public class BOperations {
 		}
 	}
 	
-	public void traiter() throws TraitementException {
+	public void traiter() throws TraitementException, SQLException {
 		//Roll back
 		try {
 			Statement statement = dbConnection.createStatement();
-			
+			dbConnection.setAutoCommit(false);
 			String sqlExtracSolde = "SELECT SOLDE FROM COMPTE WHERE NOCOMPTE = '"+ noDeCompte +"' ";
 			ResultSet rs = statement.executeQuery(sqlExtracSolde);
 						
 			rs.next();
-			solde = rs.getBigDecimal("SOLDE");
-						
+			solde = rs.getBigDecimal("SOLDE");			
 			ancienSolde = solde;
 			
 			
@@ -180,6 +179,7 @@ public class BOperations {
 				else{
 					System.out.println("The solde is not enough, the opreration is denied");
 					nouveauSolde = ancienSolde;
+					dbConnection.rollback();
 					throw new TraitementException("24");
 				}
 			}else {
@@ -202,9 +202,12 @@ public class BOperations {
 			Statement statement3 = dbConnection.createStatement();
 			statement3.executeLargeUpdate(sqlUpdateOpreration);		
 			
+			dbConnection.commit();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e);
+			dbConnection.rollback();
 			throw new TraitementException("22");	
 		}
 	}
